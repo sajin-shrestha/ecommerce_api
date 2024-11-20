@@ -1,4 +1,4 @@
-package controllers
+package api
 
 import (
 	"log"
@@ -21,7 +21,7 @@ func NewAPIServer(addr string) *APIServer {
 func (s *APIServer) Run() error {
 	err := database.DBConnection()
 	if err != nil {
-		log.Fatalf("Failed to connect to the database: %v", err)
+		log.Fatalf("Failed to connect to the database: %v", err.Error())
 		return err
 	}
 

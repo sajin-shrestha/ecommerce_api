@@ -1,10 +1,10 @@
 package main
 
-import "github.com/sajin-shrestha/ecommerce_api/controllers"
+import "github.com/sajin-shrestha/ecommerce_api/api"
 
 func main() {
-	apiServer := controllers.NewAPIServer(":9999")
+	apiServer := api.NewAPIServer(":9999")
 	if err := apiServer.Run(); err != nil {
-		panic(err)
+		panic(err.Error())
 	}
 }

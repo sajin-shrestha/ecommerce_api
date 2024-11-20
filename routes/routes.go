@@ -13,5 +13,5 @@ func InitRoutes(router *mux.Router) {
 	// Private routes (require authentication middleware)
 	private := router.PathPrefix("/api").Subrouter()
 	// private.Use(middlewares.AuthMiddleware)
-	private.HandleFunc("/dashboard", handlers.DashboardHandler).Methods("GET")
+	private.HandleFunc("/dashboard/", handlers.DashboardHandler).Methods("GET")
 }
