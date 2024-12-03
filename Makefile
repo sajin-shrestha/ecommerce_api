@@ -4,7 +4,5 @@ build:
 	@echo "Build Complete."
 
 # command to run the GO application
-run: 
+run:
 	@go run main.go
-
-

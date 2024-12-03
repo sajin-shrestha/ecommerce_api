@@ -8,7 +8,9 @@ import (
 
 func WelcomeHandler(w http.ResponseWriter, r *http.Request) {
 	data := map[string]interface{}{
-		"message": "Welcome to the Public Api!",
+		"user":      []string{"user1", "user2", "user3"},
+		"page":      1,
+		"next-page": nil,
 	}
 
 	response.SUCCESS(w, http.StatusOK, data)
@@ -21,4 +23,9 @@ func DashboardHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	response.SUCCESS(w, http.StatusOK, data)
+}
+
+func ErrorTestHandler(w http.ResponseWriter, r *http.Request) {
+	errDetail := "This is a simulated error for testing purposes."
+	response.ERROR(w, http.StatusBadRequest, errDetail)
 }

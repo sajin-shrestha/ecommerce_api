@@ -5,13 +5,22 @@ import (
 	"github.com/sajin-shrestha/ecommerce_api/handlers"
 )
 
-func InitRoutes(router *mux.Router) {
-	// Public routes
+// public routes
+func initPublicRoutes(router *mux.Router) {
 	public := router.PathPrefix("/").Subrouter()
 	public.HandleFunc("/", handlers.WelcomeHandler).Methods("GET")
+	public.HandleFunc("/error/", handlers.ErrorTestHandler).Methods("GET")
+}
 
-	// Private routes (require authentication middleware)
+// private routes
+func initPrivateRoutes(router *mux.Router) {
 	private := router.PathPrefix("/api").Subrouter()
+	// Uncomment the middleware when ready
 	// private.Use(middlewares.AuthMiddleware)
 	private.HandleFunc("/dashboard/", handlers.DashboardHandler).Methods("GET")
+}
+
+func InitRoutes(router *mux.Router) {
+	initPublicRoutes(router)  // Initializes public routes
+	initPrivateRoutes(router) // Initializes private routes
 }
