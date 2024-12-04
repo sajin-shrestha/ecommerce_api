@@ -8,9 +8,10 @@ import (
 
 func WelcomeHandler(w http.ResponseWriter, r *http.Request) {
 	data := map[string]interface{}{
-		"user":      []string{"user1", "user2", "user3"},
-		"page":      1,
-		"next-page": nil,
+		"user": []string{"user1", "user2", "user3"},
+		"page": 1,
+		"next": nil,
+		"prev": nil,
 	}
 
 	response.SUCCESS(w, http.StatusOK, data)

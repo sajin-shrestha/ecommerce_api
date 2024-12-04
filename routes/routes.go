@@ -10,6 +10,7 @@ func initPublicRoutes(router *mux.Router) {
 	public := router.PathPrefix("/").Subrouter()
 	public.HandleFunc("/", handlers.WelcomeHandler).Methods("GET")
 	public.HandleFunc("/error/", handlers.ErrorTestHandler).Methods("GET")
+	public.HandleFunc("/users/", handlers.GetAllUsers).Methods("GET")
 }
 
 // private routes

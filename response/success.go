@@ -13,12 +13,12 @@ type ISuccessResponse struct {
 
 func SUCCESS(w http.ResponseWriter, code int, data interface{}) {
 	messages := map[int]string{
-		http.StatusOK:             fmt.Sprintf("Success: OK ( %d )", http.StatusOK),
-		http.StatusCreated:        fmt.Sprintf("Success: Created ( %d )", http.StatusCreated),
-		http.StatusAccepted:       fmt.Sprintf("Success: Request Accepted ( %d )", http.StatusAccepted),
-		http.StatusNoContent:      fmt.Sprintf("Success: No Content Returned ( %d )", http.StatusNoContent),
-		http.StatusResetContent:   fmt.Sprintf("Success: Reset View ( %d )", http.StatusResetContent),
-		http.StatusPartialContent: fmt.Sprintf("Success: Partial Content Returned ( %d )", http.StatusPartialContent),
+		http.StatusOK:             fmt.Sprintf("Success: OK"),
+		http.StatusCreated:        fmt.Sprintf("Success: Created"),
+		http.StatusAccepted:       fmt.Sprintf("Success: Request Accepted"),
+		http.StatusNoContent:      fmt.Sprintf("Success: No Content Returned"),
+		http.StatusResetContent:   fmt.Sprintf("Success: Reset View"),
+		http.StatusPartialContent: fmt.Sprintf("Success: Partial Content Returned"),
 	}
 
 	message := messages[code]
